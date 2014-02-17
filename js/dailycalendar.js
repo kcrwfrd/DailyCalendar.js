@@ -113,6 +113,11 @@
         currentGroup = [ list.shift() ];
       }
 
+      /**
+       * This isn't especially performant, as it needlessley iterates over
+       * all of the events in currentGroup every time a new match or matches are added.
+       * It would be best to only iterate over the newly-added events.
+       */
       currentGroup.forEach(function(a) {
         list.forEach(function(b, index) {
           if (overlap(a, b)) {
@@ -231,9 +236,10 @@
     var start = ((event.start - beginningOfDay) / 1000 / 60) / minutesInADay * 100;
 
     var html = self.options.templates.event(event);
+
     $(html)
-    .width(width + '%')
-    .height(height + '%')
+    .css('width', width + '%')
+    .css('height', height + '%')
     .css('left', left + '%')
     .css('top', start + '%')
     .appendTo(self.$eventsWrapper);

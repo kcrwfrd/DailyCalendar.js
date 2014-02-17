@@ -188,6 +188,15 @@
       timeslots: timeslots
     }));
 
+    // Calculate left & top properties for eventsWrapper so that events are positioned properly
+    this.$eventsWrapper.css('top', function() {
+      var offset = self.$element.find('table.dc-timeslots thead').outerHeight();
+      return offset + 'px';
+    }).css('left', function() {
+      var offset = self.$element.find('table.dc-timeslots tbody th:first').outerWidth();
+      return offset + 'px';
+    });
+
     // Filter today's events
     var events = this.events.filter(function(event) {
       return start <= event.start && event.start <= end;

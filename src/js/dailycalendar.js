@@ -236,9 +236,10 @@
     var start = ((event.start - beginningOfDay) / 1000 / 60) / minutesInADay * 100;
 
     var html = self.options.templates.event(event);
+
     $(html)
-    .width(width + '%')
-    .height(height + '%')
+    .css('width', width + '%')
+    .css('height', height + '%')
     .css('left', left + '%')
     .css('top', start + '%')
     .appendTo(self.$eventsWrapper);

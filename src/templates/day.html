@@ -1,0 +1,14 @@
+<table class="table table-bordered table-hover dc-timeslots">
+  <thead>
+    <th></th>
+    <th><%= day.toDateString() %></th>
+  </thead>
+  <tbody>
+    <% _.each(timeslots, function(slot, index) { %>
+    <tr class="slot-<%- index %> <%- slot.class %>">
+      <th><%= slot.label %></th>
+      <td class="dc-event-content"><div></div></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

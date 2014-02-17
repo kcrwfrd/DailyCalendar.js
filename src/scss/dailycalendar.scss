@@ -1,0 +1,63 @@
+// Libraries
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "bootstrap";
+
+table.dc-timeslots {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  tbody > tr {
+    th, td {
+      border-width: 1px 1px 0;
+      padding: 2px 4px;
+    }
+    th {
+      text-align: right;
+      width: 80px;
+    }
+    &:nth-child(4n + 1), &:nth-child(4n+1) + tr {
+      background-color: rgb(245, 245, 245);
+    }
+  }
+
+  .dc-event-content div {
+    position: relative;
+    height: 25px;
+  }
+
+  tr.dc-minor {
+    th, td {
+      border-top-style: dotted;
+    }
+  }
+}
+
+.dc-wrapper {
+  position: relative;
+}
+
+.dc-events-wrapper {
+  position: absolute;
+  top: 38px;
+  left: 80px;
+  right: 0;
+  bottom: 0;
+}
+
+.dc-event {
+  display: block;
+  position: absolute;
+  padding: 5px;
+  background-color: $brand-primary;
+  border: 1px solid rgba(black, 0.1);
+  color: white;
+  overflow: scroll;
+
+  p {
+    margin-bottom: 2px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

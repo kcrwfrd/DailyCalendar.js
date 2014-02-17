@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+
+    title DailyCalendar.js
+
+    link(rel='stylesheet', type='text/css', href='./css/dailycalendar.css')
+
+  body
+    header.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='./') DailyCalendar.js
+
+    section.container
+      #calendar
+
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
+    script(src='./vendor/moment/moment.js')
+    script(src='./vendor/lodash/dist/lodash.js')
+    script(src='./js/dailycalendar.js')
+    script(src='./js/dc-templates.js')
+    script.
+      var calendarCanvas = document.getElementById("calendar");
+
+      var now = new Date();
+      var d = now.getDate();
+      var m = now.getMonth();
+      var y = now.getFullYear();
+
+      var events = [
+        { title: 'Fizz', start: new Date(y, m, d, 4) },
+        { title: 'Buzz', start: new Date(y, m, d, 4, 40), end: new Date(y, m, d, 7, 15) },
+        { title: 'Bang', start: new Date(y, m, d, 4, 60) },
+        { title: 'Foo', start: new Date(y, m, d, 8) },
+        { title: 'Bar', start: new Date(y, m, d, 9) },
+        { title: 'Baz', start: new Date(y, m, d, 9, 30) },
+        { title: 'Bat', start: new Date(y, m, d, 10) },
+        { title: "Woo", start: new Date(y, m, d, 12) },
+        { title: "Unf", start: new Date(y, m, d, 13) },
+        { title: "split A", start: new Date(y, m, d, 15) },
+        { title: "split B", start: new Date(y, m, d, 15) }
+      ];
+
+      var calendar = new DailyCalendar(calendarCanvas, {
+        events: events,
+        templates: {
+          day: JST.day,
+          event: JST.event
+        }
+      });
+

@@ -62,7 +62,7 @@
     }
 
     // Bind navigation buttons
-    this.$element.on('click', '.dc-navigation button', function(event) {
+    self.$element.on('click', '.dc-navigation button', function(event) {
       var val = this.getAttribute('value');
 
       if (val === 'next') {
@@ -75,7 +75,7 @@
     });
 
     // Draw this.day
-    self.drawDay(this.day);
+    self.drawDay(self.day);
   };
 
   /**
@@ -124,7 +124,7 @@
     }
 
     // Add the event to our instance
-    this.events.push(event);
+    self.events.push(event);
   };
 
   /**
@@ -248,13 +248,13 @@
     }
 
     // Render the `day` template
-    this.$timeslotsWrapper.html(this.options.templates.day({
+    self.$timeslotsWrapper.html(self.options.templates.day({
       day: day,
       timeslots: timeslots
     }));
 
     // Calculate left & top properties for eventsWrapper so that events are positioned properly
-    this.$eventsWrapper.css('top', function() {
+    self.$eventsWrapper.css('top', function() {
       var offset = self.$element.find('table.dc-timeslots thead').outerHeight();
       return offset + 'px';
     }).css('left', function() {
@@ -263,7 +263,7 @@
     });
 
     // Filter today's events
-    var events = this.events.filter(function(event) {
+    var events = self.events.filter(function(event) {
       return start <= event.start && event.start <= end;
     });
 

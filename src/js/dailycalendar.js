@@ -169,25 +169,37 @@
 
       // Starting a new group
       if (typeof currentGroup === 'undefined') {
-        currentGroup = [ list.shift() ];
+        // Remove the first element from the list, it will be
+        // the first element in our new group
+        var first = list.shift();
+
+        var currentGroup = {
+          start: first.start,
+          end: first.end,
+          events: [ first ]
+        };
       }
 
       /**
-       * This isn't especially performant, as it needlessley iterates over
-       * all of the events in currentGroup every time a new match or matches are added.
-       *
-       * TODO: A better way to go would be to define groups, like such:
-       * { min: startOfGroupRange, max: endOfGroupRange, events: [] }
-       * Then compare the list of remaining events against the group min/max,
-       * modifying the group min/max as additional matches are found.
+       *  Iterate through the remaining events, checking if they overlap the current group
        */
-      currentGroup.forEach(function(a) {
-        list.forEach(function(b, index) {
-          if (overlap(a, b)) {
-            currentGroup = currentGroup.concat(list.splice(index, 1));
-            match = true;
+      list.forEach(function(event, index) {
+        if (overlap(event, currentGroup)) {
+          // A match is found! Remove it from the list and add to the group
+          var add = list.splice(index, 1)[0];
+          match = true;
+
+          // Group range grows to accomodate new item
+          if (add.start < currentGroup.start) {
+            currentGroup.start = add.start;
           }
-        });
+          if (add.end > currentGroup.end) {
+            currentGroup.end = add.end;
+          }
+
+          // Add the matched event to the group
+          currentGroup.events.push(add);
+        }
       });
 
       if (match) {
@@ -198,13 +210,12 @@
       } else if (list.length) {
         // No matches found, so we're done building this group.
         // However, there are still items in the list that need to be grouped
-        groups.push(currentGroup);
+        groups.push(currentGroup.events);
         return groupOverlapping(list, groups);
-      }
 
-      else {
+      } else {
         // No matches found and list is empty, we're ready to return the groups
-        groups.push(currentGroup);
+        groups.push(currentGroup.events);
         return groups;
       }
     }

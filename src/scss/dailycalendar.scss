@@ -4,8 +4,8 @@
 @import "bootstrap";
 
 table.dc-timeslots {
-  border-collapse: collapse;
-  border-spacing: 0;
+  @extend .table;
+  @extend .table-bordered;
 
   thead {
     h3 {

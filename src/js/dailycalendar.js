@@ -5,9 +5,15 @@
   var pluginName = 'DailyCalendar'
     , pluginVersion = '0.0.1';
 
-
   var defaults = {
-
+    events: [{
+      title: 'Enter An Event!',
+      start: new Date()
+    }],
+    templates: {
+      day: null, // A pre-compiled underscore/lodash template must be specified
+      'event': null // A pre-compiled underscore/lodash template must be specified
+    }
   };
 
   /**

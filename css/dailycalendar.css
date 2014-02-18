@@ -328,8 +328,9 @@ table {
   }
 
   /* line 81, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_print.scss */
-  .table td,
-  .table th {
+  .table td, table.dc-timeslots td,
+  .table th,
+  table.dc-timeslots th {
     background-color: #fff !important;
   }
 
@@ -346,13 +347,14 @@ table {
   }
 
   /* line 95, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_print.scss */
-  .table {
+  .table, table.dc-timeslots {
     border-collapse: collapse !important;
   }
 
   /* line 100, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_print.scss */
-  .table-bordered th,
-  .table-bordered td {
+  .table-bordered th, table.dc-timeslots th,
+  .table-bordered td,
+  table.dc-timeslots td {
     border: 1px solid #ddd !important;
   }
 }
@@ -1974,42 +1976,52 @@ th {
 }
 
 /* line 17, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table {
+.table, table.dc-timeslots {
   width: 100%;
   margin-bottom: 20px;
 }
 /* line 26, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table > thead > tr > th,
+.table > thead > tr > th, table.dc-timeslots > thead > tr > th,
 .table > thead > tr > td,
+table.dc-timeslots > thead > tr > td,
 .table > tbody > tr > th,
+table.dc-timeslots > tbody > tr > th,
 .table > tbody > tr > td,
+table.dc-timeslots > tbody > tr > td,
 .table > tfoot > tr > th,
-.table > tfoot > tr > td {
+table.dc-timeslots > tfoot > tr > th,
+.table > tfoot > tr > td,
+table.dc-timeslots > tfoot > tr > td {
   padding: 8px;
   line-height: 1.428571429;
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
 /* line 35, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table > thead > tr > th {
+.table > thead > tr > th, table.dc-timeslots > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #dddddd;
 }
 /* line 45, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table > caption + thead > tr:first-child > th,
+.table > caption + thead > tr:first-child > th, table.dc-timeslots > caption + thead > tr:first-child > th,
 .table > caption + thead > tr:first-child > td,
+table.dc-timeslots > caption + thead > tr:first-child > td,
 .table > colgroup + thead > tr:first-child > th,
+table.dc-timeslots > colgroup + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > td,
+table.dc-timeslots > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > th,
-.table > thead:first-child > tr:first-child > td {
+table.dc-timeslots > thead:first-child > tr:first-child > th,
+.table > thead:first-child > tr:first-child > td,
+table.dc-timeslots > thead:first-child > tr:first-child > td {
   border-top: 0;
 }
 /* line 51, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table > tbody + tbody {
+.table > tbody + tbody, table.dc-timeslots > tbody + tbody {
   border-top: 2px solid #dddddd;
 }
 /* line 56, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table .table {
+.table .table, table.dc-timeslots .table, .table table.dc-timeslots, table.dc-timeslots table.dc-timeslots {
   background-color: white;
 }
 
@@ -2024,21 +2036,27 @@ th {
 }
 
 /* line 82, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table-bordered {
+.table-bordered, table.dc-timeslots {
   border: 1px solid #dddddd;
 }
 /* line 89, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > th, table.dc-timeslots > thead > tr > th,
 .table-bordered > thead > tr > td,
+table.dc-timeslots > thead > tr > td,
 .table-bordered > tbody > tr > th,
+table.dc-timeslots > tbody > tr > th,
 .table-bordered > tbody > tr > td,
+table.dc-timeslots > tbody > tr > td,
 .table-bordered > tfoot > tr > th,
-.table-bordered > tfoot > tr > td {
+table.dc-timeslots > tfoot > tr > th,
+.table-bordered > tfoot > tr > td,
+table.dc-timeslots > tfoot > tr > td {
   border: 1px solid #dddddd;
 }
 /* line 96, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-.table-bordered > thead > tr > th,
-.table-bordered > thead > tr > td {
+.table-bordered > thead > tr > th, table.dc-timeslots > thead > tr > th,
+.table-bordered > thead > tr > td,
+table.dc-timeslots > thead > tr > td {
   border-bottom-width: 2px;
 }
 
@@ -2069,15 +2087,23 @@ table th[class*="col-"] {
 }
 
 /* line 422, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
-.table > thead > tr > .active,
+.table > thead > tr > .active, table.dc-timeslots > thead > tr > .active,
 .table > thead > .active > td,
+table.dc-timeslots > thead > .active > td,
 .table > thead > .active > th,
+table.dc-timeslots > thead > .active > th,
 .table > tbody > tr > .active,
+table.dc-timeslots > tbody > tr > .active,
 .table > tbody > .active > td,
+table.dc-timeslots > tbody > .active > td,
 .table > tbody > .active > th,
+table.dc-timeslots > tbody > .active > th,
 .table > tfoot > tr > .active,
+table.dc-timeslots > tfoot > tr > .active,
 .table > tfoot > .active > td,
-.table > tfoot > .active > th {
+table.dc-timeslots > tfoot > .active > td,
+.table > tfoot > .active > th,
+table.dc-timeslots > tfoot > .active > th {
   background-color: whitesmoke;
 }
 
@@ -2089,15 +2115,23 @@ table th[class*="col-"] {
 }
 
 /* line 422, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
-.table > thead > tr > .success,
+.table > thead > tr > .success, table.dc-timeslots > thead > tr > .success,
 .table > thead > .success > td,
+table.dc-timeslots > thead > .success > td,
 .table > thead > .success > th,
+table.dc-timeslots > thead > .success > th,
 .table > tbody > tr > .success,
+table.dc-timeslots > tbody > tr > .success,
 .table > tbody > .success > td,
+table.dc-timeslots > tbody > .success > td,
 .table > tbody > .success > th,
+table.dc-timeslots > tbody > .success > th,
 .table > tfoot > tr > .success,
+table.dc-timeslots > tfoot > tr > .success,
 .table > tfoot > .success > td,
-.table > tfoot > .success > th {
+table.dc-timeslots > tfoot > .success > td,
+.table > tfoot > .success > th,
+table.dc-timeslots > tfoot > .success > th {
   background-color: #dff0d8;
 }
 
@@ -2109,15 +2143,23 @@ table th[class*="col-"] {
 }
 
 /* line 422, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
-.table > thead > tr > .danger,
+.table > thead > tr > .danger, table.dc-timeslots > thead > tr > .danger,
 .table > thead > .danger > td,
+table.dc-timeslots > thead > .danger > td,
 .table > thead > .danger > th,
+table.dc-timeslots > thead > .danger > th,
 .table > tbody > tr > .danger,
+table.dc-timeslots > tbody > tr > .danger,
 .table > tbody > .danger > td,
+table.dc-timeslots > tbody > .danger > td,
 .table > tbody > .danger > th,
+table.dc-timeslots > tbody > .danger > th,
 .table > tfoot > tr > .danger,
+table.dc-timeslots > tfoot > tr > .danger,
 .table > tfoot > .danger > td,
-.table > tfoot > .danger > th {
+table.dc-timeslots > tfoot > .danger > td,
+.table > tfoot > .danger > th,
+table.dc-timeslots > tfoot > .danger > th {
   background-color: #f2dede;
 }
 
@@ -2129,15 +2171,23 @@ table th[class*="col-"] {
 }
 
 /* line 422, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
-.table > thead > tr > .warning,
+.table > thead > tr > .warning, table.dc-timeslots > thead > tr > .warning,
 .table > thead > .warning > td,
+table.dc-timeslots > thead > .warning > td,
 .table > thead > .warning > th,
+table.dc-timeslots > thead > .warning > th,
 .table > tbody > tr > .warning,
+table.dc-timeslots > tbody > tr > .warning,
 .table > tbody > .warning > td,
+table.dc-timeslots > tbody > .warning > td,
 .table > tbody > .warning > th,
+table.dc-timeslots > tbody > .warning > th,
 .table > tfoot > tr > .warning,
+table.dc-timeslots > tfoot > tr > .warning,
 .table > tfoot > .warning > td,
-.table > tfoot > .warning > th {
+table.dc-timeslots > tfoot > .warning > td,
+.table > tfoot > .warning > th,
+table.dc-timeslots > tfoot > .warning > th {
   background-color: #fcf8e3;
 }
 
@@ -2160,45 +2210,63 @@ table th[class*="col-"] {
     -webkit-overflow-scrolling: touch;
   }
   /* line 180, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-  .table-responsive > .table {
+  .table-responsive > .table, .table-responsive > table.dc-timeslots {
     margin-bottom: 0;
   }
   /* line 189, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > thead > tr > th, .table-responsive > table.dc-timeslots > thead > tr > th,
   .table-responsive > .table > thead > tr > td,
+  .table-responsive > table.dc-timeslots > thead > tr > td,
   .table-responsive > .table > tbody > tr > th,
+  .table-responsive > table.dc-timeslots > tbody > tr > th,
   .table-responsive > .table > tbody > tr > td,
+  .table-responsive > table.dc-timeslots > tbody > tr > td,
   .table-responsive > .table > tfoot > tr > th,
-  .table-responsive > .table > tfoot > tr > td {
+  .table-responsive > table.dc-timeslots > tfoot > tr > th,
+  .table-responsive > .table > tfoot > tr > td,
+  .table-responsive > table.dc-timeslots > tfoot > tr > td {
     white-space: nowrap;
   }
   /* line 197, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-  .table-responsive > .table-bordered {
+  .table-responsive > .table-bordered, .table-responsive > table.dc-timeslots {
     border: 0;
   }
   /* line 206, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > th:first-child, .table-responsive > table.dc-timeslots > thead > tr > th:first-child,
   .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > table.dc-timeslots > thead > tr > td:first-child,
   .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > table.dc-timeslots > tbody > tr > th:first-child,
   .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > table.dc-timeslots > tbody > tr > td:first-child,
   .table-responsive > .table-bordered > tfoot > tr > th:first-child,
-  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  .table-responsive > table.dc-timeslots > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child,
+  .table-responsive > table.dc-timeslots > tfoot > tr > td:first-child {
     border-left: 0;
   }
   /* line 210, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > th:last-child, .table-responsive > table.dc-timeslots > thead > tr > th:last-child,
   .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > table.dc-timeslots > thead > tr > td:last-child,
   .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > table.dc-timeslots > tbody > tr > th:last-child,
   .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > table.dc-timeslots > tbody > tr > td:last-child,
   .table-responsive > .table-bordered > tfoot > tr > th:last-child,
-  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  .table-responsive > table.dc-timeslots > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child,
+  .table-responsive > table.dc-timeslots > tfoot > tr > td:last-child {
     border-right: 0;
   }
   /* line 223, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_tables.scss */
-  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > th, .table-responsive > table.dc-timeslots > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > table.dc-timeslots > tbody > tr:last-child > td,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
-  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+  .table-responsive > table.dc-timeslots > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+  .table-responsive > table.dc-timeslots > tfoot > tr:last-child > td {
     border-bottom: 0;
   }
 }
@@ -6104,67 +6172,102 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 }
 
 /* line 60, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .table,
-.panel > .table-responsive > .table {
+.panel > .table, .panel > table.dc-timeslots,
+.panel > .table-responsive > .table,
+.panel > .table-responsive > table.dc-timeslots {
   margin-bottom: 0;
 }
 /* line 64, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .panel-body + .table,
+.panel > .panel-body + .table, .panel > .panel-body + table.dc-timeslots,
 .panel > .panel-body + .table-responsive {
   border-top: 1px solid #dddddd;
 }
 /* line 68, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .table > tbody:first-child th,
-.panel > .table > tbody:first-child td {
+.panel > .table > tbody:first-child th, .panel > table.dc-timeslots > tbody:first-child th,
+.panel > .table > tbody:first-child td,
+.panel > table.dc-timeslots > tbody:first-child td {
   border-top: 0;
 }
 /* line 72, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .table-bordered,
-.panel > .table-responsive > .table-bordered {
+.panel > .table-bordered, .panel > table.dc-timeslots,
+.panel > .table-responsive > .table-bordered,
+.panel > .table-responsive > table.dc-timeslots {
   border: 0;
 }
 /* line 79, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .table-bordered > thead > tr > th:first-child,
+.panel > .table-bordered > thead > tr > th:first-child, .panel > table.dc-timeslots > thead > tr > th:first-child,
 .panel > .table-bordered > thead > tr > td:first-child,
+.panel > table.dc-timeslots > thead > tr > td:first-child,
 .panel > .table-bordered > tbody > tr > th:first-child,
+.panel > table.dc-timeslots > tbody > tr > th:first-child,
 .panel > .table-bordered > tbody > tr > td:first-child,
+.panel > table.dc-timeslots > tbody > tr > td:first-child,
 .panel > .table-bordered > tfoot > tr > th:first-child,
+.panel > table.dc-timeslots > tfoot > tr > th:first-child,
 .panel > .table-bordered > tfoot > tr > td:first-child,
+.panel > table.dc-timeslots > tfoot > tr > td:first-child,
 .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+.panel > .table-responsive > table.dc-timeslots > thead > tr > th:first-child,
 .panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+.panel > .table-responsive > table.dc-timeslots > thead > tr > td:first-child,
 .panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+.panel > .table-responsive > table.dc-timeslots > tbody > tr > th:first-child,
 .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+.panel > .table-responsive > table.dc-timeslots > tbody > tr > td:first-child,
 .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
-.panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+.panel > .table-responsive > table.dc-timeslots > tfoot > tr > th:first-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child,
+.panel > .table-responsive > table.dc-timeslots > tfoot > tr > td:first-child {
   border-left: 0;
 }
 /* line 83, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .table-bordered > thead > tr > th:last-child,
+.panel > .table-bordered > thead > tr > th:last-child, .panel > table.dc-timeslots > thead > tr > th:last-child,
 .panel > .table-bordered > thead > tr > td:last-child,
+.panel > table.dc-timeslots > thead > tr > td:last-child,
 .panel > .table-bordered > tbody > tr > th:last-child,
+.panel > table.dc-timeslots > tbody > tr > th:last-child,
 .panel > .table-bordered > tbody > tr > td:last-child,
+.panel > table.dc-timeslots > tbody > tr > td:last-child,
 .panel > .table-bordered > tfoot > tr > th:last-child,
+.panel > table.dc-timeslots > tfoot > tr > th:last-child,
 .panel > .table-bordered > tfoot > tr > td:last-child,
+.panel > table.dc-timeslots > tfoot > tr > td:last-child,
 .panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+.panel > .table-responsive > table.dc-timeslots > thead > tr > th:last-child,
 .panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+.panel > .table-responsive > table.dc-timeslots > thead > tr > td:last-child,
 .panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+.panel > .table-responsive > table.dc-timeslots > tbody > tr > th:last-child,
 .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+.panel > .table-responsive > table.dc-timeslots > tbody > tr > td:last-child,
 .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
-.panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+.panel > .table-responsive > table.dc-timeslots > tfoot > tr > th:last-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child,
+.panel > .table-responsive > table.dc-timeslots > tfoot > tr > td:last-child {
   border-right: 0;
 }
 /* line 88, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
-.panel > .table-bordered > thead > tr:last-child > th, .panel > .table-bordered > thead > tr:last-child > td,
+.panel > .table-bordered > thead > tr:last-child > th, .panel > table.dc-timeslots > thead > tr:last-child > th, .panel > .table-bordered > thead > tr:last-child > td, .panel > table.dc-timeslots > thead > tr:last-child > td,
 .panel > .table-bordered > tbody > tr:last-child > th,
+.panel > table.dc-timeslots > tbody > tr:last-child > th,
 .panel > .table-bordered > tbody > tr:last-child > td,
+.panel > table.dc-timeslots > tbody > tr:last-child > td,
 .panel > .table-bordered > tfoot > tr:last-child > th,
+.panel > table.dc-timeslots > tfoot > tr:last-child > th,
 .panel > .table-bordered > tfoot > tr:last-child > td,
+.panel > table.dc-timeslots > tfoot > tr:last-child > td,
 .panel > .table-responsive > .table-bordered > thead > tr:last-child > th,
+.panel > .table-responsive > table.dc-timeslots > thead > tr:last-child > th,
 .panel > .table-responsive > .table-bordered > thead > tr:last-child > td,
+.panel > .table-responsive > table.dc-timeslots > thead > tr:last-child > td,
 .panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+.panel > .table-responsive > table.dc-timeslots > tbody > tr:last-child > th,
 .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+.panel > .table-responsive > table.dc-timeslots > tbody > tr:last-child > td,
 .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th,
-.panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+.panel > .table-responsive > table.dc-timeslots > tfoot > tr:last-child > th,
+.panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+.panel > .table-responsive > table.dc-timeslots > tfoot > tr:last-child > td {
   border-bottom: 0;
 }
 /* line 94, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.0.3.0/vendor/assets/stylesheets/bootstrap/_panels.scss */
@@ -7741,11 +7844,6 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
-}
-/* line 6, ../../src/scss/dailycalendar.scss */
-table.dc-timeslots {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 /* line 11, ../../src/scss/dailycalendar.scss */
 table.dc-timeslots thead h3 {

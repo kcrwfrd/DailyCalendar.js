@@ -5,9 +5,16 @@
   var pluginName = 'DailyCalendar'
     , pluginVersion = '0.0.1';
 
-
   var defaults = {
-
+    day: new Date(),
+    events: [{
+      title: 'Enter An Event!',
+      start: new Date()
+    }],
+    templates: {
+      day: null, // A pre-compiled underscore/lodash template must be specified
+      'event': null // A pre-compiled underscore/lodash template must be specified
+    }
   };
 
   /**
@@ -35,8 +42,8 @@
     // Events
     this.events = [];
 
-    // If options.day isn't specified, then default to today
-    this.day = this.options.day || new Date();
+    // Let this.drawDay() set this.day
+    this.day = null;
 
     this.init();
   }
@@ -49,12 +56,14 @@
     var self = this;
 
     // Add events specified in the options
-    this.options.events.forEach(function(event) {
-      self.addEvent(event);
-    });
+    if (self.options.events.length) {
+      self.options.events.forEach(function(event) {
+        self.addEvent(event);
+      });
+    }
 
     // Bind navigation buttons
-    this.$element.on('click', '.dc-navigation button', function(event) {
+    self.$element.on('click', '.dc-navigation button', function(event) {
       var val = this.getAttribute('value');
 
       if (val === 'next') {
@@ -66,8 +75,8 @@
       }
     });
 
-    // Draw this.day
-    self.drawDay(this.day);
+    // Draw the day specified in options
+    self.drawDay(self.options.day);
   };
 
   /**
@@ -111,11 +120,12 @@
 
     // If `event.end` has been omitted, set a default length of 1 hr
     if (typeof event.end === 'undefined') {
-      event.end = new Date(event.start.getFullYear(), event.start.getMonth(), event.start.getDate(), event.start.getHours() + 1, event.start.getMinutes());
+      event.end = new Date(event.start);
+      event.end.setHours(event.start.getHours() + 1);
     }
 
     // Add the event to our instance
-    this.events.push(event);
+    self.events.push(event);
   };
 
   /**
@@ -159,21 +169,37 @@
 
       // Starting a new group
       if (typeof currentGroup === 'undefined') {
-        currentGroup = [ list.shift() ];
+        // Remove the first element from the list, it will be
+        // the first element in our new group
+        var first = list.shift();
+
+        var currentGroup = {
+          start: first.start,
+          end: first.end,
+          events: [ first ]
+        };
       }
 
       /**
-       * This isn't especially performant, as it needlessley iterates over
-       * all of the events in currentGroup every time a new match or matches are added.
-       * It would be best to only iterate over the newly-added events.
+       *  Iterate through the remaining events, checking if they overlap the current group
        */
-      currentGroup.forEach(function(a) {
-        list.forEach(function(b, index) {
-          if (overlap(a, b)) {
-            currentGroup = currentGroup.concat(list.splice(index, 1));
-            match = true;
+      list.forEach(function(event, index) {
+        if (overlap(event, currentGroup)) {
+          // A match is found! Remove it from the list and add to the group
+          var add = list.splice(index, 1)[0];
+          match = true;
+
+          // Group range grows to accomodate new item
+          if (add.start < currentGroup.start) {
+            currentGroup.start = add.start;
           }
-        });
+          if (add.end > currentGroup.end) {
+            currentGroup.end = add.end;
+          }
+
+          // Add the matched event to the group
+          currentGroup.events.push(add);
+        }
       });
 
       if (match) {
@@ -184,13 +210,12 @@
       } else if (list.length) {
         // No matches found, so we're done building this group.
         // However, there are still items in the list that need to be grouped
-        groups.push(currentGroup);
+        groups.push(currentGroup.events);
         return groupOverlapping(list, groups);
-      }
 
-      else {
+      } else {
         // No matches found and list is empty, we're ready to return the groups
-        groups.push(currentGroup);
+        groups.push(currentGroup.events);
         return groups;
       }
     }
@@ -227,21 +252,21 @@
 
       timeslots.push({
         label: label,
-        class: ''
+        'class': ''
       }, {
         label: '&nbsp;',
-        class: 'dc-minor'
+        'class': 'dc-minor'
       });
     }
 
     // Render the `day` template
-    this.$timeslotsWrapper.html(this.options.templates.day({
+    self.$timeslotsWrapper.html(self.options.templates.day({
       day: day,
       timeslots: timeslots
     }));
 
     // Calculate left & top properties for eventsWrapper so that events are positioned properly
-    this.$eventsWrapper.css('top', function() {
+    self.$eventsWrapper.css('top', function() {
       var offset = self.$element.find('table.dc-timeslots thead').outerHeight();
       return offset + 'px';
     }).css('left', function() {
@@ -250,7 +275,7 @@
     });
 
     // Filter today's events
-    var events = this.events.filter(function(event) {
+    var events = self.events.filter(function(event) {
       return start <= event.start && event.start <= end;
     });
 

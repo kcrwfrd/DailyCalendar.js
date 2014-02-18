@@ -6,6 +6,7 @@
     , pluginVersion = '0.0.1';
 
   var defaults = {
+    day: new Date(),
     events: [{
       title: 'Enter An Event!',
       start: new Date()
@@ -41,8 +42,8 @@
     // Events
     this.events = [];
 
-    // If options.day isn't specified, then default to today
-    this.day = this.options.day || new Date();
+    // Let this.drawDay() set this.day
+    this.day = null;
 
     this.init();
   }
@@ -74,8 +75,8 @@
       }
     });
 
-    // Draw this.day
-    self.drawDay(self.day);
+    // Draw the day specified in options
+    self.drawDay(self.options.day);
   };
 
   /**

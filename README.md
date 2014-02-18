@@ -17,5 +17,5 @@ Any changes made since submitting the code sample:
 ## TO-DO
 * ~~General clean up~~
 * ~~Improve performance of overlapping event function~~
-* Improve packaging of default pre-compiled templates.
-* Draw timeslots table only once (due to the way underscore templates work, I don't think this is such a performance hit)
+* Improve packaging of default pre-compiled templates. Ideally, they should be tucked into the same dailycalendar.js file, and hidden from the global scope.
+* Draw timeslots table only once. The performance of precompiled underscore templates might make this a non-issue, though.

@@ -27,6 +27,7 @@
       var d = now.getDate();
       var m = now.getMonth();
       var y = now.getFullYear();
+      var tomorrow = d + 1;
       
       var events = [
         { title: 'Fizz', start: new Date(y, m, d, 4) },
@@ -40,7 +41,21 @@
         { title: "Woo", start: new Date(y, m, d, 12) },
         { title: "Unf", start: new Date(y, m, d, 13) },
         { title: "split A", start: new Date(y, m, d, 15) },
-        { title: "split B", start: new Date(y, m, d, 15) }
+        { title: "split B", start: new Date(y, m, d, 15) },
+        
+        // next day
+        { title: 'Fizz', start: new Date(y, m, tomorrow, 3) },
+        { title: 'Buzz', start: new Date(y, m, tomorrow, 3, 30), end: new Date(y, m, tomorrow, 7, 15) },
+        { title: 'Bang', start: new Date(y, m, tomorrow, 3, 60) },
+        { title: 'Baz', start: new Date(y, m, tomorrow, 5) },
+        { title: 'Foo', start: new Date(y, m, tomorrow, 4) },
+        { title: 'Bar', start: new Date(y, m, tomorrow, 8) },
+        { title: 'Baz', start: new Date(y, m, tomorrow, 5, 30) },
+        { title: 'Bat', start: new Date(y, m, tomorrow, 12) },
+        { title: "Woo", start: new Date(y, m, tomorrow, 12, 30) },
+        { title: "Unf", start: new Date(y, m, tomorrow, 13) },
+        { title: "split A", start: new Date(y, m, tomorrow, 15) },
+        { title: "split B", start: new Date(y, m, tomorrow, 15) },
       ];
       
       var calendar = new DailyCalendar(calendarCanvas, {

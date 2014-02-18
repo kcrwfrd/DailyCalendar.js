@@ -117,7 +117,8 @@
 
     // If `event.end` has been omitted, set a default length of 1 hr
     if (typeof event.end === 'undefined') {
-      event.end = new Date(event.start.getFullYear(), event.start.getMonth(), event.start.getDate(), event.start.getHours() + 1, event.start.getMinutes());
+      event.end = new Date(event.start);
+      event.end.setHours(event.start.getHours() + 1);
     }
 
     // Add the event to our instance

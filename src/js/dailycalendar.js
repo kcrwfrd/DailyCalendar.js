@@ -241,10 +241,10 @@
 
       timeslots.push({
         label: label,
-        class: ''
+        'class': ''
       }, {
         label: '&nbsp;',
-        class: 'dc-minor'
+        'class': 'dc-minor'
       });
     }
 

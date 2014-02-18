@@ -15,6 +15,8 @@
     </header>
     <section class="container">
       <div id="calendar"></div>
+      <h2>Another calendar, instantiated with jQuery</h2>
+      <div id="anotherCalendar"></div>
     </section>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="./vendor/lodash/dist/lodash.js"></script>
@@ -64,8 +66,16 @@
         events: events,
         templates: {
           day: JST.day,
-          event: JST.event
+          'event': JST.event
         }
+      });
+      
+      $('#anotherCalendar').DailyCalendar({
+          events: events,
+          templates: {
+            day: JST.day,
+            'event': JST.event
+          }
       });
       
     </script>

@@ -8,7 +8,13 @@ A simple day-view event calendar.
 ## Development
 Clone the repo, then `npm install && bower install && grunt develop` (also depends on the Compass gem being installed)
 
+## Changelog
+Any changes made since submitting the code sample:
+
+* Enabled paging between days
+
 ## TO-DO
-* Enable paging between multiple days--it's not especially useful being limited to displaying the current day.
+* General clean up
+* Draw timeslots table only once
 * Improve packaging of default pre-compiled templates.
 * Improve performance of overlapping event function

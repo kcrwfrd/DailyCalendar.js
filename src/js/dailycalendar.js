@@ -55,9 +55,11 @@
     var self = this;
 
     // Add events specified in the options
-    this.options.events.forEach(function(event) {
-      self.addEvent(event);
-    });
+    if (self.options.events.length) {
+      self.options.events.forEach(function(event) {
+        self.addEvent(event);
+      });
+    }
 
     // Bind navigation buttons
     this.$element.on('click', '.dc-navigation button', function(event) {

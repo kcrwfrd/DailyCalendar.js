@@ -35,6 +35,9 @@
     // Events
     this.events = [];
 
+    // If options.day isn't specified, then default to today
+    this.day = this.options.day || new Date();
+
     this.init();
   }
 
@@ -50,7 +53,53 @@
       self.addEvent(event);
     });
 
-    // Draw today
+    // Bind navigation buttons
+    this.$element.on('click', '.dc-navigation button', function(event) {
+      var val = this.getAttribute('value');
+
+      if (val === 'next') {
+        self.next();
+      } else if (val === 'prev') {
+        self.prev();
+      } else if (val === 'today') {
+        self.today();
+      }
+    });
+
+    // Draw this.day
+    self.drawDay(this.day);
+  };
+
+  /**
+   * Show next day
+   */
+  DailyCalendar.prototype.next = function() {
+    var self = this;
+
+    var next = new Date(self.day);
+    next.setDate(self.day.getDate() + 1);
+
+    self.drawDay(next);
+  };
+
+  /**
+   * Previous day
+   */
+  DailyCalendar.prototype.prev = function() {
+    var self = this;
+
+    var prev = new Date(self.day);
+    prev.setDate(self.day.getDate() - 1);
+
+    self.drawDay(prev);
+  };
+
+  /**
+   * Today
+   */
+  DailyCalendar.prototype.today = function() {
+    var self = this;
+
     self.drawDay(new Date());
   };
 
@@ -157,6 +206,9 @@
     var start = new Date(day.getFullYear(), day.getMonth(), day.getDate(), 0, 0, 0);
     var end = new Date(day.getFullYear(), day.getMonth(), day.getDate(), 23, 59, 59);
 
+    // Set current date on instance
+    self.day = start;
+
     // Define the timeslots
     var timeslots = [];
     for (var i = 0; i <= 23; i++) {
@@ -207,6 +259,12 @@
 
   DailyCalendar.prototype.drawEvents = function(events) {
     var self = this;
+
+    // Clear the canvas
+    self.$eventsWrapper.html('');
+
+    // No events, so let's leave the canvas blank
+    if (!events.length) return;
 
     // Group events by overlap
     events = self.groupEvents(events);

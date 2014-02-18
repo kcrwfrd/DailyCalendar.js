@@ -1,7 +1,15 @@
 <table class="table table-bordered table-hover dc-timeslots">
   <thead>
     <th></th>
-    <th><%= day.toDateString() %></th>
+    <th>
+      <h3><%= day.toDateString() %></h3>
+
+      <nav class="dc-navigation" role="navigation">
+        <button value="prev">Previous</button>
+        <button value="today">Today</button>
+        <button value="next">Next</button>
+      </nav>
+    </th>
   </thead>
   <tbody>
     <% _.each(timeslots, function(slot, index) { %>

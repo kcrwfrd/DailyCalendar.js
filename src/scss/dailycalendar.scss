@@ -7,6 +7,22 @@ table.dc-timeslots {
   border-collapse: collapse;
   border-spacing: 0;
 
+  thead {
+    h3 {
+      float: left;
+      margin: 0;
+    }
+    .dc-navigation {
+      @extend .btn-group;
+      float: right;
+      button {
+        @extend .btn;
+        @extend .btn-default;
+        @extend .btn-sm;
+      }
+    }
+  }
+
   tbody > tr {
     th, td {
       border-width: 1px 1px 0;

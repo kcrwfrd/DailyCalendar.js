@@ -18,6 +18,9 @@ html(lang='en')
     section.container
       #calendar
 
+      h2 Another calendar, instantiated with jQuery
+      #anotherCalendar
+
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
     script(src='./vendor/lodash/dist/lodash.js')
     script(src='./js/dailycalendar.js')
@@ -66,7 +69,15 @@ html(lang='en')
         events: events,
         templates: {
           day: JST.day,
-          event: JST.event
+          'event': JST.event
         }
+      });
+
+      $('#anotherCalendar').DailyCalendar({
+          events: events,
+          templates: {
+            day: JST.day,
+            'event': JST.event
+          }
       });
 

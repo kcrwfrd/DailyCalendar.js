@@ -165,7 +165,11 @@
       /**
        * This isn't especially performant, as it needlessley iterates over
        * all of the events in currentGroup every time a new match or matches are added.
-       * It would be best to only iterate over the newly-added events.
+       *
+       * TODO: A better way to go would be to define groups, like such:
+       * { min: startOfGroupRange, max: endOfGroupRange, events: [] }
+       * Then compare the list of remaining events against the group min/max,
+       * modifying the group min/max as additional matches are found.
        */
       currentGroup.forEach(function(a) {
         list.forEach(function(b, index) {
